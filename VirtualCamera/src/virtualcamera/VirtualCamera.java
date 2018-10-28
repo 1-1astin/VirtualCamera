@@ -1,16 +1,28 @@
 package virtualcamera;
 
+import javax.swing.SwingUtilities;
+
 /**
  *
  * @author Maciej
  */
 public class VirtualCamera {
 
-    /**
-     * @param args the command line arguments
-     */
+    private MainWindow mainWindow;
+    
+    private VirtualCamera() {
+        mainWindow = new MainWindow();
+    }
+    
+    private void view() {
+        SwingUtilities.invokeLater(() -> {
+            mainWindow.setVisible(true);
+        });
+    }
+    
     public static void main(String[] args) {
-        // TODO code application logic here
+        VirtualCamera camera = new VirtualCamera();
+        camera.view();
     }
     
 }
